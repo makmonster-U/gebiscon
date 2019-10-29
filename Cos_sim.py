@@ -18,6 +18,7 @@ deleted_rows.sort()
 j=0
 count = -1
 deleted_index=[]
+k = len(deleted_rows)
     #삭제된 행은 원본에서도 삭제
 for i in s_df['일련번호']:
     count = count + 1
@@ -33,9 +34,9 @@ s_df = s_df.drop(deleted_index)
 
 cos = {}
 for i in interest_column:
-    dot = np.dot(df[i], df1[i])
-    norma = np.linalg.norm(df[i])
-    normb = np.linalg.norm(df1[i])
+    dot = np.dot(s_df[i], s_df1[i])
+    norma = np.linalg.norm(s_df[i])
+    normb = np.linalg.norm(s_df1[i])
     cos[i] = dot / (norma * normb)
 
 #컬럼별 결과 출력
